@@ -3,12 +3,17 @@
 <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.text_field :name, autofocus: true %>    
+    <%= f.email_field :email %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "off" %>
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.form_group :role, label: { text: "How do you want to use Fanco?" } do %>
+      <%= f.radio_button :role, 'fan', label: "Fan", checked: true %>
+      <%= f.radio_button :role, 'creator', label: "Creator" %>
+    <% end %>
     <%= f.submit "Sign up" %>
 <% end %>
 

@@ -19,8 +19,12 @@
               <%= link_to 'Search', '' %>
               <%= link_to 'Start My Page', '' %>
               <%= link_to 'Explore Creators', '' %>
-              <%= link_to 'Sign Up', new_user_registration_path %>
-              <%= link_to 'Log In', new_user_session_path %>
+              <% if user_signed_in? %>
+                <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
+              <% else %>
+                <%= link_to 'Sign Up', new_user_registration_path %>
+                <%= link_to 'Log In', new_user_session_path %>
+              <% end %>
             </nav>
           </div>
         </div>
