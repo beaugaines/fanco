@@ -5,6 +5,11 @@ module ApplicationHelper
       :error => 'alert-danger',
       :alert => 'alert-warning',
       :notice => 'alert-info'
-      }[flash_type.to_sym] || flash_type.to_s
-    end
+    }[flash_type.to_sym] || flash_type.to_s
   end
+
+  def user_avatar(email)
+    image_tag("https://robohash.org/#{email}.png?size=128x128",class: 'media-object')
+  end
+
+end

@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col-md-9 col-md-offset-1">
+    <h1>Confirm your pledge to <%= @user.name %></h1>
+    <div class="jumbotron">
+      <h2>Your pledge to <%= @user.name %>: <%= number_to_currency(@tier.price) %></h2>
+      <p><%= @tier.blurb %></p>
+    </div>
+  </div>
+</div>
+

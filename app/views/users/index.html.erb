@@ -1,6 +1,17 @@
 <div class='container'>
   <h3>Creators</h3>
   <% @creators.each do |creator|%>
+     <div class="media">
+       <div class="media-left">
+         <%= user_avatar(creator.email) %>
+       </div>
+       <div class="media-body">
+         <%= creator.blurb %>
+         <br>
+         <%= link_to 'Support', support_path(creator.id), class: 'btn btn-primary' %>
+       </div>
+
+     </div>
     <p><%= creator.name %></p>
   <% end %>
 </div>

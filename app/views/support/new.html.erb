@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-md-12">
+    <h1>Support <%= @user.name %>!</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-1">
+    <div class="jumbotron">
+      <h2>Choose your tier:</h2>
+      <div class="row">
+        <% @user.reward_tiers.each do |tier| %>
+            <div class="col-md-4">
+              <h2><%= tier.title %></h2>
+              <hr>
+              <p><%= tier.blurb %></p>
+              <p><%= number_to_currency(tier.price) %></p>
+              <p>Chosen <%= pluralize(tier.chosen_tally, 'time') %></p>
+              <%= link_to 'Continue', new_checkout_path(user_id: @user.id, tier_id: tier.id), class: 'btn btn-success' %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
